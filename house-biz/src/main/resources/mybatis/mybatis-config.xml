@@ -14,9 +14,12 @@
 
     <typeAliases>
         <typeAlias type="com.crui.house.common.model.User" alias="user"/>
+        <typeAlias type="com.crui.house.common.model.House" alias="house"/>
+        <typeAlias type="com.crui.house.common.model.Community" alias="community"/>
     </typeAliases>
 
     <mappers>
         <mapper resource="mapper/user.xml"/>
+        <mapper resource="mapper/house.xml"/>
     </mappers>
 </configuration>
