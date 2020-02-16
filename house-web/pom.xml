@@ -11,7 +11,6 @@
 
   <artifactId>house-web</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-
   <name>house-web</name>
 
   <properties>
@@ -30,29 +29,16 @@
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
 
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-freemarker</artifactId>
     </dependency>
-
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
-
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-starter-actuator</artifactId>-->
-<!--    </dependency>-->
-
-<!--    <dependency>-->
-<!--      <groupId>de.codecentric</groupId>-->
-<!--      <artifactId>spring-boot-admin-starter-client</artifactId>-->
-<!--      <version>1.5.0</version>-->
-<!--    </dependency>-->
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -68,20 +54,19 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-log4j2</artifactId>
-<!--      <version>1.4.7.RELEASE</version>-->
     </dependency>
 
 <!--    <dependency>-->
-<!--      <groupId>com.lmax</groupId>-->
-<!--      <artifactId>disruptor</artifactId>-->
-<!--      <version>3.3.6</version>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-actuator</artifactId>-->
 <!--    </dependency>-->
 
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-configuration-processor</artifactId>-->
-<!--      <optional>true</optional>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>de.codecentric</groupId>
+      <artifactId>spring-boot-admin-client</artifactId>
+      <version>2.2.2</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -95,11 +80,12 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <mainClass>com.mooc.house.HouseApplication</mainClass>
+          <mainClass>com.crui.house.HouseApplication</mainClass>
           <layout>ZIP</layout>
         </configuration>
         <executions>

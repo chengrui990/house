@@ -1,5 +1,6 @@
 package com.crui.house.common.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
@@ -79,18 +80,24 @@ public class House implements java.io.Serializable {
     private String sort = "time_desc";
 
     private String firstImg;
-    private List<String> imagesList = Lists.newArrayList();
+    private List<String> imageList = Lists.newArrayList();
     private List<String> floorPlanList = Lists.newArrayList();
     private List<MultipartFile> houseFiles;// = Lists.newArrayList();
     private List<MultipartFile> floorPlanFiles;// = Lists.newArrayList();
+    private List<String> featureList   = Lists.newArrayList();
 
     private Long userId;
     private boolean bookmarked;
 
     private List<Long> ids;
 
-    private String typeStr;
 
+    private String priceStr;
+    public void setPrice(Integer price) {
+        this.price = price;
+        this.priceStr = this.price + "万";
+    }
+    private String typeStr;
     public void setType(Integer type) {
         this.type = type;
         if (Objects.equal(type, 1) && Objects.equal(type, 0)) {
@@ -106,8 +113,24 @@ public class House implements java.io.Serializable {
             List<String> list = (List<String>) Splitter.on(",").splitToList(images);
             if (!list.isEmpty()){
                 this.firstImg = list.get(0);
-                this.imagesList = list;
+                this.imageList = list;
             }
         }
+    }
+    public void setFloorPlan(String floorPlan) {
+        this.floorPlan = floorPlan;
+        if (!Strings.isNullOrEmpty(floorPlan)) {
+            this.floorPlanList = Splitter.on(",").splitToList(floorPlan);
+        }
+
+    }
+
+    public void setProperties(String properties) {
+        this.properties = properties;
+        this.featureList = Splitter.on(",").splitToList(properties);
+    }
+    public void setFeatureList(List<String> featureList) {
+        this.featureList = featureList;
+        this.properties = Joiner.on(",").join(featureList);
     }
 }

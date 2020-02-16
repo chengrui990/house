@@ -5,6 +5,7 @@ import com.crui.house.common.constants.CommonConstants;
 import com.crui.house.common.model.User;
 import com.crui.house.common.result.ResultMsg;
 import com.crui.house.common.utils.HashUtils;
+import com.crui.house.web.interceptor.UserContext;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -85,6 +86,7 @@ public class UserController {
             session.setAttribute(CommonConstants.USER_ATTRIBUTE,user);
             session.setAttribute(CommonConstants.PLAIN_USER_ATTRIBUTE, user);
             System.out.println("3");
+            UserContext.setUser(user);
             return StringUtils.isNotBlank(target)? "redirect:" + target : "redirect:/index";
         }
     }

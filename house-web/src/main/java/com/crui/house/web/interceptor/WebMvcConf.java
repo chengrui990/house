@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  *
  * @author crui
  */
-//@Configuration
+@Configuration
 public class WebMvcConf extends WebMvcConfigurationSupport {
     @Autowired
     private AuthActionInterceptor authActionInterceptor;
@@ -26,11 +26,11 @@ public class WebMvcConf extends WebMvcConfigurationSupport {
 //        super.addResourceHandlers(registry);
 //    }
 //
-//    @Override
-//    protected void addInterceptors(InterceptorRegistry registry) {
-//
-//        registry.addInterceptor(authInterceptor).excludePathPatterns("/static").addPathPatterns("/**");
-//        registry.addInterceptor(authActionInterceptor).addPathPatterns("/accounts/profile");
-//        super.addInterceptors(registry);
-//    }
+    @Override
+    protected void addInterceptors(InterceptorRegistry registry) {
+
+        registry.addInterceptor(authInterceptor).excludePathPatterns("/static").addPathPatterns("/**");
+        registry.addInterceptor(authActionInterceptor).addPathPatterns("/accounts/profile");
+        super.addInterceptors(registry);
+    }
 }
